@@ -1,4 +1,7 @@
 return {
   'akinsho/toggleterm.nvim',
-  version = "*"
+  version = "*",
+  config = function()
+    require("toggleterm").setup()
+  end
 }

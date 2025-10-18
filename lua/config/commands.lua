@@ -18,17 +18,3 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.formatoptions:remove({ "r", "o" })
   end,
 })
-
--- Disable relative number on inactive buffers
--- vim.api.nvim_create_autocmd("BufEnter", {
---   pattern = "*",
---   callback = function()
---     vim.opt_local.relativenumber = true
---   end,
--- })
--- vim.api.nvim_create_autocmd("BufLeave", {
---   pattern = "*",
---   callback = function()
---     vim.opt_local.relativenumber = false
---   end,
--- })

@@ -11,3 +11,13 @@ vim.opt.smarttab = true
 vim.opt.termguicolors = true
 vim.opt.showtabline = 2
 vim.opt.showmode = false
+vim.opt.fillchars = {
+  horiz     = '━',
+  horizup   = '┻',
+  horizdown = '┳',
+  vert      = '┃',
+  vertleft  = '┫',
+  vertright = '┣',
+  verthoriz = '╋',
+}
+vim.opt.numberwidth = 2
