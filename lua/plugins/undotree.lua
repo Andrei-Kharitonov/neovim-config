@@ -1,8 +1,7 @@
 -- Undo history visualizer
 return {
   "jiaoshijie/undotree",
-  ---@module 'undotree.collector'
-  ---@type UndoTreeCollector.Opts
+  event = 'VeryLazy',
   opts = {
     position = 'right'
   }

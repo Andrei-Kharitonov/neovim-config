@@ -11,6 +11,7 @@ vim.opt.smarttab = true
 vim.opt.termguicolors = true
 vim.opt.showtabline = 2
 vim.opt.showmode = false
+vim.opt.shortmess = 'ltToOCFsS'
 vim.opt.fillchars = {
   horiz     = '━',
   horizup   = '┻',

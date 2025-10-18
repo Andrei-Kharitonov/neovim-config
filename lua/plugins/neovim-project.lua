@@ -1,11 +1,17 @@
 -- Open saved projects
 return {
   "coffebar/neovim-project",
+  dependencies = {
+    { "nvim-lua/plenary.nvim" },
+    { "Shatur/neovim-session-manager" },
+  },
+  event = 'VeryLazy',
   opts = {
     projects = {
       "~/projects/*",
       "~/work/*",
       "~/nixos-config",
+      "~/.config/nvim",
     },
     picker = {
       type = "telescope",
@@ -23,11 +29,4 @@ return {
     -- enable saving the state of plugins in the session
     vim.opt.sessionoptions:append("globals")
   end,
-  dependencies = {
-    { "nvim-lua/plenary.nvim" },
-    { "nvim-telescope/telescope.nvim", tag = "0.1.4" },
-    { "Shatur/neovim-session-manager" },
-  },
-  lazy = false,
-  priority = 100,
 }

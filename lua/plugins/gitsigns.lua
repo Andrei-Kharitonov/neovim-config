@@ -1,4 +1,5 @@
 -- Git integration for buffers
 return {
-  'lewis6991/gitsigns.nvim'
+  'lewis6991/gitsigns.nvim',
+  event = 'BufEnter'
 }

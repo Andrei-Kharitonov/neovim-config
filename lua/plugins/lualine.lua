@@ -16,7 +16,7 @@ return {
       lualine_a = {'mode'},
       lualine_b = {'branch', 'diff'},
       lualine_c = {'diagnostics'},
-      lualine_x = {'searchcount', 'encoding'},
+      lualine_x = {'searchcount'},
       lualine_y = {{'filetype', icon_only = true}, 'progress'},
       lualine_z = {'location'}
     },
