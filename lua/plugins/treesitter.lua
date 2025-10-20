@@ -1,6 +1,5 @@
 -- Parser
 -- NOTE: branch 'master' is depricated
--- if not working - try reinstal plugin with :Lazy
 return {
   "nvim-treesitter/nvim-treesitter",
   branch = 'master',
@@ -13,7 +12,7 @@ return {
         'html',
         'css',
         'scss',
-        'javascript',
+        'javascript', -- js, jsx
         'typescript',
         'tsx',
         'php',

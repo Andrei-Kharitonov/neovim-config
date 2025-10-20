@@ -9,6 +9,14 @@ vim.keymap.set("v", "<C-c>", "\"+y", { silent = true, noremap = true, desc = "Co
 vim.keymap.set("i", "<C-v>", "<C-r>+", { silent = true, noremap = true, desc = "Paste from clipboard" })
 vim.keymap.set("v", "<C-x>", "\"+d", { silent = true, noremap = true, desc = "Cut to clipboard" })
 
+-- Lsp
+vim.keymap.set("n", "K", vim.lsp.buf.hover, { silent = true, noremap = true, desc = "Lsp show docs" })
+vim.keymap.set("n", "gd", vim.lsp.buf.definition, { silent = true, noremap = true, desc = "Lsp go definition" })
+vim.keymap.set("n", "gr", vim.lsp.buf.references, { silent = true, noremap = true, desc = "Lsp show references" })
+vim.keymap.set("n", "gf", vim.lsp.buf.format, { silent = true, noremap = true, desc = "Lsp format file" })
+vim.keymap.set({"n", "v"}, "<Leader>ca", vim.lsp.buf.code_action, { silent = true, noremap = true, desc = "Lsp show code actions" })
+vim.keymap.set("n", "<C-d>", vim.diagnostic.open_float, { silent = true, noremap = true, desc = "Show diagnostic" })
+
 -- Plugins keymaps
 vim.keymap.set("n", "<C-e>", ":Neotree toggle<CR>", { silent = true, noremap = true, desc = "File explorer" })
 vim.keymap.set("n", "<Leader>t", ":Telescope<CR>", { silent = true, noremap = true, desc = "Search" })

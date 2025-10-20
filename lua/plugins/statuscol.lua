@@ -7,21 +7,28 @@ return {
       relculright = true,
       segments = {
         {
-          sign = { name = { 'Diagnostic.*' }, colwidth = 1 },
-          condition = { builtin.not_empty },
+          sign = {
+            namespace = { 'diagnostic' },
+            maxwidth = 1,
+            colwidth = 1,
+          },
+          condition = { builtin.not_empty }
         },
         {
-          text = { "%s" },
+          text = { builtin.lnumfunc },
+          condition = { true, builtin.not_empty }
+        },
+        {
           sign = {
             namespace = { 'gitsigns' },
             maxwidth = 1,
             colwidth = 1,
           },
-          condition = { builtin.not_empty },
+          condition = { builtin.not_empty }
         },
         {
-          text = { builtin.lnumfunc, " " },
-          condition = { true, builtin.not_empty },
+          text = {" "},
+          condition = { builtin.not_empty }
         },
       },
     })

@@ -21,4 +21,4 @@ vim.opt.fillchars = {
   vertright = '┣',
   verthoriz = '╋',
 }
-vim.opt.numberwidth = 2
+vim.opt.numberwidth = 3
