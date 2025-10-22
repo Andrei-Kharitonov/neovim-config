@@ -8,29 +8,30 @@ return {
       segments = {
         {
           sign = {
-            namespace = { 'diagnostic' },
+            namespace = { "diagnostic" },
             maxwidth = 1,
             colwidth = 1,
           },
-          condition = { builtin.not_empty }
+          condition = { builtin.not_empty },
         },
         {
           text = { builtin.lnumfunc },
-          condition = { true, builtin.not_empty }
+          condition = { true, builtin.not_empty },
         },
         {
           sign = {
-            namespace = { 'gitsigns' },
+            namespace = { "gitsigns" },
             maxwidth = 1,
             colwidth = 1,
           },
-          condition = { builtin.not_empty }
+          condition = { builtin.not_empty },
         },
         {
-          text = {" "},
-          condition = { builtin.not_empty }
+          text = { " " },
+          condition = { builtin.not_empty },
         },
       },
     })
   end,
 }
+

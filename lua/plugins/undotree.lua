@@ -2,6 +2,6 @@
 return {
   "jiaoshijie/undotree",
   opts = {
-    position = 'right'
-  }
+    position = "right",
+  },
 }

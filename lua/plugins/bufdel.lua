@@ -1,8 +1,8 @@
 -- Keep window after closing buffer
 return {
-  'ojroques/nvim-bufdel',
+  "ojroques/nvim-bufdel",
   opts = {
-    next = 'tabs',
+    next = "tabs",
     quit = true, -- quit Neovim when last buffer is closed
-  }
+  },
 }

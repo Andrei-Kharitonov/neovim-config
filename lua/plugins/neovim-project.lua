@@ -21,7 +21,7 @@ return {
       -- insert mode: Ctrl+d
       i = "<C-d>",
       -- normal mode: d
-      n = "d"
+      n = "d",
     },
   },
   init = function()

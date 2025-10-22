@@ -1,7 +1,7 @@
 -- Notifications pop-up
 return {
-  'rcarriga/nvim-notify',
-  event = 'VeryLazy',
+  "rcarriga/nvim-notify",
+  event = "VeryLazy",
   config = function()
     require("notify").setup({
       timeout = 3000,
@@ -10,5 +10,5 @@ return {
     })
 
     vim.notify = require("notify")
-  end
+  end,
 }

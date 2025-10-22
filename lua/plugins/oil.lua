@@ -3,7 +3,7 @@ return {
   "stevearc/oil.nvim",
   dependencies = { "nvim-tree/nvim-web-devicons" },
   lazy = false,
-  config = function ()
+  config = function()
     require("oil").setup({
       default_file_explorer = false,
       keymaps = {
@@ -25,5 +25,5 @@ return {
         ["g\\"] = { "actions.toggle_trash", mode = "n" },
       },
     })
-  end
+  end,
 }

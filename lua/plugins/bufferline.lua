@@ -1,11 +1,11 @@
 -- Top line of buffers and tabs
 return {
-  'akinsho/bufferline.nvim',
+  "akinsho/bufferline.nvim",
   version = "*",
-  dependencies = 'nvim-tree/nvim-web-devicons',
+  dependencies = "nvim-tree/nvim-web-devicons",
   config = function()
-    local bufferline = require('bufferline')
-    bufferline.setup {
+    local bufferline = require("bufferline")
+    bufferline.setup({
       options = {
         numbers = "buffer_id",
         diagnostics = "nvim_lsp",
@@ -22,10 +22,10 @@ return {
           },
         },
         indicator = {
-          style = "underline"
+          style = "underline",
         },
-        separator_style = {"", ""},
+        separator_style = { "", "" },
       },
-    }
-  end
+    })
+  end,
 }

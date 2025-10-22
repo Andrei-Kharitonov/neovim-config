@@ -6,7 +6,7 @@ return {
   config = function()
     require("ibl").setup({
       indent = {
-        char = '▏',
+        char = "▏",
         highlight = "LspCodeLens",
       },
       whitespace = {
@@ -20,8 +20,8 @@ return {
           "dashboard",
           "neo-tree",
           "notify",
-        }
-      }
+        },
+      },
     })
-  end
+  end,
 }

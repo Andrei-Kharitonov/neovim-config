@@ -1,8 +1,8 @@
 -- Windows movement
 return {
-  'sindrets/winshift.nvim',
+  "sindrets/winshift.nvim",
   opts = {
     highlight_moving_win = false,
-    focused_hl_group = "Visual"
-  }
+    focused_hl_group = "Visual",
+  },
 }

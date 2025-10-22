@@ -18,5 +18,6 @@ return {
         enabled = true,
       },
     },
-  }
+  },
 }
+

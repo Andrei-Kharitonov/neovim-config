@@ -4,7 +4,7 @@ return {
     "mason-org/mason.nvim",
     config = function()
       require("mason").setup()
-    end
+    end,
   },
   {
     -- Lsp install
@@ -20,40 +20,40 @@ return {
           "nil_ls", -- nix
           "pyright", -- python
           "clangd", -- c, c++
-        }
+        },
       })
-    end
+    end,
   },
   {
     -- Lsp config
     "neovim/nvim-lspconfig",
     config = function()
-      local capabilities = require('cmp_nvim_lsp').default_capabilities()
+      local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
       vim.lsp.config("lua_ls", {
-        capabilities = capabilities
+        capabilities = capabilities,
       })
       vim.lsp.config("html", {
-        capabilities = capabilities
+        capabilities = capabilities,
       })
       vim.lsp.config("cssls", {
-        capabilities = capabilities
+        capabilities = capabilities,
       })
       vim.lsp.config("vtsls", {
-        capabilities = capabilities
+        capabilities = capabilities,
       })
       vim.lsp.config("jsonls", {
-        capabilities = capabilities
+        capabilities = capabilities,
       })
       vim.lsp.config("nil_ls", {
-        capabilities = capabilities
+        capabilities = capabilities,
       })
       vim.lsp.config("pyright", {
-        capabilities = capabilities
+        capabilities = capabilities,
       })
       vim.lsp.config("clangd", {
-        capabilities = capabilities
+        capabilities = capabilities,
       })
-    end
-  }
+    end,
+  },
 }

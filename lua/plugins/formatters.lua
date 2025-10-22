@@ -5,15 +5,15 @@ return {
     config = function()
       require("mason-null-ls").setup({
         ensure_installed = {
-          "stylua", -- lua 
+          "stylua", -- lua
           "prettier", -- html, css, js, etc.
           "nixfmt", -- nix
-          "black", -- python 
+          "black", -- python
           "clang-format", -- c, c++
           "eslint_d", -- js, ts linter
-        }
+        },
       })
-    end
+    end,
   },
   {
     -- Formatters
@@ -29,6 +29,6 @@ return {
           null_ls.builtins.formatting.clang_format,
         },
       })
-    end
-  }
+    end,
+  },
 }

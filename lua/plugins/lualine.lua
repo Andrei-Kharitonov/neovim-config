@@ -7,7 +7,9 @@ return {
   config = function()
     local function visualLinesCount()
       local isVisualMode = vim.fn.mode():find("[Vv]")
-      if not isVisualMode then return "" end
+      if not isVisualMode then
+        return ""
+      end
       local starts = vim.fn.line("v")
       local ends = vim.fn.line(".")
       local lines = starts <= ends and ends - starts + 1 or starts - ends + 1
@@ -15,7 +17,9 @@ return {
     end
 
     local function visualBlockSize()
-      if vim.fn.mode() ~= "\22" then return "" end
+      if vim.fn.mode() ~= "\22" then
+        return ""
+      end
       local start_pos = vim.fn.getpos("v")
       local end_pos = vim.fn.getpos(".")
       local start_line = math.min(start_pos[2], end_pos[2])

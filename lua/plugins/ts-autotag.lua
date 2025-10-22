@@ -1,15 +1,16 @@
 -- Autoclose html tags
 return {
-  'windwp/nvim-ts-autotag',
-  event = 'VeryLazy',
+  "windwp/nvim-ts-autotag",
+  event = "VeryLazy",
   config = function()
-    require('nvim-ts-autotag').setup({
+    require("nvim-ts-autotag").setup({
       enable = true,
       opts = {
         enable_close = true,
         enable_rename = true,
-        enable_close_on_slash = true
+        enable_close_on_slash = true,
       },
     })
-  end
+  end,
 }
+

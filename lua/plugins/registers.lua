@@ -15,7 +15,7 @@ return {
       show_register_types = false,
       system_clipboard = false,
       events = {
-        on_register_highlighted = false
+        on_register_highlighted = false,
       },
       symbols = {
         newline = "⏎",
@@ -29,5 +29,6 @@ return {
         transparency = 20,
       },
     })
-  end
+  end,
 }
+
