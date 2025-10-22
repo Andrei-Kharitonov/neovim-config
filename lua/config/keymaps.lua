@@ -1,13 +1,15 @@
 -- Keymaps
 vim.g.mapleader = " " -- map <Leader> key
 vim.g.maplocalleader = "\\"
-vim.keymap.set("i", "jj", "<ESC>", { silent = true })
+vim.keymap.set("i", "jj", "<ESC>", { silent = true, noremap = true })
 vim.keymap.set("n", "<Leader>/", ":noh<CR>", { silent = true, noremap = true, desc = "Clear search highlight" })
-vim.keymap.set("n", "<Leader>bd", ":BufDel<CR>", { silent = true, noremap = true, desc = "Delete buffer" })
-vim.keymap.set("n", "<Leader>bh", ":DelHiddenBufs<CR>", { silent = true, noremap = true, desc = "Delete all hidden buffers" })
+vim.keymap.set("n", "<Leader>dd", ":BufDel<CR>", { silent = true, noremap = true, desc = "Delete buffer" })
+vim.keymap.set("n", "<Leader>dh", ":DelHiddenBufs<CR>", { silent = true, noremap = true, desc = "Delete all hidden buffers" })
 vim.keymap.set("v", "<C-c>", "\"+y", { silent = true, noremap = true, desc = "Copy to clipboard" })
 vim.keymap.set("i", "<C-v>", "<C-r>+", { silent = true, noremap = true, desc = "Paste from clipboard" })
 vim.keymap.set("v", "<C-x>", "\"+d", { silent = true, noremap = true, desc = "Cut to clipboard" })
+vim.keymap.set("n", "<C-/>", "gcc", { silent = true, remap = true, desc = "Comment line" })
+vim.keymap.set("v", "<C-/>", "gc", { silent = true, remap = true, desc = "Comment selected lines" })
 
 -- Lsp
 vim.keymap.set("n", "K", vim.lsp.buf.hover, { silent = true, noremap = true, desc = "Lsp show docs" })
@@ -19,7 +21,8 @@ vim.keymap.set("n", "<C-d>", vim.diagnostic.open_float, { silent = true, noremap
 
 -- Plugins keymaps
 vim.keymap.set("n", "<C-e>", ":Neotree toggle<CR>", { silent = true, noremap = true, desc = "File explorer" })
-vim.keymap.set("n", "<Leader>t", ":Telescope<CR>", { silent = true, noremap = true, desc = "Search" })
+vim.keymap.set("n", "<C-p>", ":Telescope find_files<CR>", { silent = true, noremap = true, desc = "Search files in directory" })
+vim.keymap.set("n", "<Leader>F", ":Telescope<CR>", { silent = true, noremap = true, desc = "Search" })
 vim.keymap.set("n", "<Leader>ff", ":Telescope current_buffer_fuzzy_find<CR>", { silent = true, noremap = true, desc = "Search in file" })
 vim.keymap.set("n", "<Leader>fs", ":Telescope live_grep<CR>", { silent = true, noremap = true, desc = "Search in directory" })
 vim.keymap.set("n", "<Leader>fl", ":Telescope find_files<CR>", { silent = true, noremap = true, desc = "Search files in directory" })
@@ -37,6 +40,7 @@ vim.keymap.set("n", "<Leader>hn", ":lua require('harpoon.ui').nav_next()<CR>", {
 vim.keymap.set("n", "<Leader>hp", ":lua require('harpoon.ui').nav_prev()<CR>", { silent = true, noremap = true, desc = "Harpoon prev" })
 vim.keymap.set("n", "<Leader>z", ":ZenMode<CR>", { silent = true, noremap = true, desc = "Zen mode" })
 vim.keymap.set("n", "<Leader>u", ":lua require('undotree').toggle()<CR>", { silent = true, noremap = true, desc = "Undo history" })
+vim.keymap.set('n', "<leader>s", ":lua require('spectre').toggle()<CR>", { silent = true, noremap = true, desc = "Search and replace" })
 vim.keymap.set("n", "<Leader>?", ":lua require('which-key').show({keys='<Leader>'})<CR>", { silent = true, desc = "Show keymaps" })
 
 -- resize windows

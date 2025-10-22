@@ -1,3 +1,4 @@
+-- Keep window after closing buffer
 return {
   'ojroques/nvim-bufdel',
   event = 'VeryLazy',

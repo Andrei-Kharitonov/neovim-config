@@ -1,3 +1,4 @@
+-- Integrated terminal
 return {
   'akinsho/toggleterm.nvim',
   version = "*",

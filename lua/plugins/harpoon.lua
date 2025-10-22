@@ -1,3 +1,4 @@
+-- Jumps between files
 return {
   'ThePrimeagen/harpoon',
   branch = 'master',
