@@ -4,7 +4,7 @@ return {
   dependencies = {
     'nvim-tree/nvim-web-devicons'
   },
-  event = 'VimEnter',
+  -- event = 'VimEnter',
   config = function()
     require('dashboard').setup {
       theme = 'doom',
@@ -57,7 +57,7 @@ return {
             key = 'q',
           }
         },
-        footer = {},
+        -- footer = {},
         vertical_center = true,
       }
     }

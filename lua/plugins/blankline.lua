@@ -2,7 +2,7 @@
 return {
   "lukas-reineke/indent-blankline.nvim",
   main = "ibl",
-  event = 'VimEnter',
+  event = "VeryLazy",
   config = function()
     require("ibl").setup({
       indent = {

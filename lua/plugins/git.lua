@@ -2,12 +2,10 @@ return {
   {
     -- Git integration for buffers
     "lewis6991/gitsigns.nvim",
-    event = "BufEnter",
   },
   {
     -- Git commands for vim
     "tpope/vim-fugitive",
-    event = "VeryLazy",
   },
   {
     -- Lazygit for neovim
@@ -24,7 +22,7 @@ return {
       "nvim-lua/plenary.nvim",
     },
     keys = {
-      { "<Leader>g", ":LazyGit<CR>", desc = "LazyGit" },
+      { "<Leader>GG", ":LazyGit<CR>", desc = "LazyGit" },
     },
   },
 }

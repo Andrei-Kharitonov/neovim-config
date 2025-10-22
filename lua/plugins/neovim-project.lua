@@ -5,7 +5,6 @@ return {
     { "nvim-lua/plenary.nvim" },
     { "Shatur/neovim-session-manager" },
   },
-  event = 'VeryLazy',
   opts = {
     projects = {
       "~/projects/*",
