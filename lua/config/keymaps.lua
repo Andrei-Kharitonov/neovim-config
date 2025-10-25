@@ -54,6 +54,10 @@ vim.keymap.set("n", "<Leader>s", ":lua require('spectre').toggle()<CR>", { silen
 vim.keymap.set("n", "<Leader>Ghp", ":Gitsigns preview_hunk<CR>", { silent = true, noremap = true, desc = "Git preview hunk" })
 vim.keymap.set("n", "<Leader>Ghr", ":Gitsigns reset_hunk<CR>", { silent = true, noremap = true, desc = "Git reset hunk" })
 vim.keymap.set("n", "<Leader>Ghs", ":Gitsigns stage_hunk<CR>", { silent = true, noremap = true, desc = "Git stage hunk" })
+vim.keymap.set("n", "<Leader>xx", ":Trouble diagnostics toggle<CR>", { silent = true, noremap = true, desc = "Diagnostics (Trouble)" })
+vim.keymap.set("n", "<Leader>xX", ":Trouble diagnostics toggle filter.buf=0<CR>", { silent = true, noremap = true, desc = "Buffer Diagnostics (Trouble)" })
+vim.keymap.set("n", "<Leader>cs", ":Trouble symbols toggle focus=false<CR>", { silent = true, noremap = true, desc = "Symbols (Trouble)" })
+vim.keymap.set("n", "<Leader>cl", ":Trouble lsp toggle focus=false win.position=right<CR>", { silent = true, noremap = true, desc = "LSP Definitions (Trouble)" })
 vim.keymap.set("n", "<Leader>?", ":lua require('which-key').show({keys='<Leader>'})<CR>", { silent = true, desc = "Show keymaps" })
 
 -- resize windows

@@ -9,9 +9,16 @@ return {
       options = {
         numbers = "buffer_id",
         diagnostics = "nvim_lsp",
-        diagnostics_indicator = function(count, level, diagnostics_dict, context)
-          local icon = level:match("error") and " " or " "
-          return " " .. icon .. count
+        diagnostics_indicator = function(_, _, diagnostics, _)
+          local symbols = { error = " ", warn = " " }
+          local result = {}
+          if diagnostics.error and diagnostics.error > 0 then
+            table.insert(result, symbols.error .. diagnostics.error)
+          end
+          if diagnostics.warning and diagnostics.warning > 0 then
+            table.insert(result, symbols.warn .. diagnostics.warning)
+          end
+          return table.concat(result, " ")
         end,
         style_preset = bufferline.style_preset.no_italic,
         offsets = {
@@ -20,9 +27,6 @@ return {
             text = " NEO-TREE",
             padding = 1,
           },
-        },
-        indicator = {
-          style = "underline",
         },
         separator_style = { "", "" },
       },
