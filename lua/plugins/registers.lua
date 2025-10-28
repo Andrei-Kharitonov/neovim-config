@@ -8,6 +8,7 @@ return {
         normal = false,
         visual = false,
         insert = false,
+        registers = registers.apply_register({ delay = 0 }),
         ["<Leader>"] = registers.close_window(),
         ["<C-q>"] = registers.close_window(),
       },
@@ -26,7 +27,7 @@ return {
         max_width = 40,
         highlight_cursorline = true,
         border = "rounded",
-        transparency = 20,
+        transparency = 0,
       },
     })
   end,

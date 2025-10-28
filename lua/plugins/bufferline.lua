@@ -10,7 +10,7 @@ return {
         numbers = "buffer_id",
         diagnostics = "nvim_lsp",
         diagnostics_indicator = function(_, _, diagnostics, _)
-          local symbols = { error = " ", warn = " " }
+          local symbols = { error = " ", warn = " " }
           local result = {}
           if diagnostics.error and diagnostics.error > 0 then
             table.insert(result, symbols.error .. diagnostics.error)

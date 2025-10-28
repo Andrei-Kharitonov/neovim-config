@@ -58,7 +58,13 @@ return {
       sections = {
         lualine_a = { "mode", visualLinesCount, visualBlockSize },
         lualine_b = { "branch", "diff" },
-        lualine_c = { "diagnostics" },
+        lualine_c = {
+          {
+            "diagnostics",
+            sources = { "nvim_lsp" },
+            symbols = { error = " ", warn = " ", info = " ", hint = " " },
+          },
+        },
         lualine_x = { "searchcount", wordCount },
         lualine_y = { { "filetype", icon_only = true }, "progress" },
         lualine_z = { "location" },
