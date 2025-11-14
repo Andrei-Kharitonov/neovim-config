@@ -15,5 +15,34 @@ return {
     -- fix floating windows colors for catppuccin-mocha
     vim.api.nvim_set_hl(0, "FloatBorder", { link = "Normal" })
     vim.api.nvim_set_hl(0, "NormalFloat", { link = "Normal" })
+
+    -- bold window borders
+    vim.opt.fillchars = {
+      horiz = "━",
+      horizup = "┻",
+      horizdown = "┳",
+      vert = "┃",
+      vertleft = "┫",
+      vertright = "┣",
+      verthoriz = "╋",
+    }
+
+    -- diagnostic underline style
+    local hl_groups = { 'DiagnosticUnderlineError', 'DiagnosticUnderlineWarn', 'DiagnosticUnderlineInfo' }
+    for _, hl in ipairs(hl_groups) do
+        vim.cmd.highlight(hl .. ' gui=undercurl')
+    end
+
+    -- diagnostic icons
+    vim.diagnostic.config({
+      signs = {
+        text = {
+          [vim.diagnostic.severity.ERROR] = " ",
+          [vim.diagnostic.severity.WARN] = " ",
+          [vim.diagnostic.severity.INFO] = " ",
+          [vim.diagnostic.severity.HINT] = " ",
+        },
+      },
+    })
   end,
 }
