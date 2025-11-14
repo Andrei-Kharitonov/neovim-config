@@ -31,6 +31,15 @@ vim.keymap.set("n", "<C-d>", vim.diagnostic.open_float, { silent = true, noremap
 
 -- Plugins keymaps
 vim.keymap.set("n", "<C-e>", ":Neotree toggle<CR>", { silent = true, noremap = true, desc = "File explorer" })
+vim.keymap.set("n", "<Leader>w", ":WinShift<CR>", { silent = true, noremap = true, desc = "Move window" })
+vim.keymap.set("n", "<Leader>r", ":Registers<CR>", { silent = true, noremap = true, desc = "Registers" })
+vim.keymap.set("n", "<Leader>`", ":ToggleTerm direction=horizontal<CR>", { silent = true, noremap = true, desc = "Terminal" })
+vim.keymap.set("n", "<Leader>z", ":ZenMode<CR>", { silent = true, noremap = true, desc = "Zen mode" })
+vim.keymap.set("n", "<Leader>u", ":lua require('undotree').toggle()<CR>", { silent = true, noremap = true, desc = "Undo history" })
+vim.keymap.set("n", "<Leader>s", ":lua require('spectre').toggle()<CR>", { silent = true, noremap = true, desc = "Search and replace" })
+vim.keymap.set("n", "<Leader>?", ":lua require('which-key').show({keys='<Leader>'})<CR>", { silent = true, desc = "Show keymaps" })
+
+-- telescope
 vim.keymap.set("n", "<C-p>", ":Telescope find_files<CR>", { silent = true, noremap = true, desc = "Search files in directory" })
 vim.keymap.set("n", "<Leader>F", ":Telescope<CR>", { silent = true, noremap = true, desc = "Search" })
 vim.keymap.set("n", "<Leader>ff", ":Telescope current_buffer_fuzzy_find<CR>", { silent = true, noremap = true, desc = "Search in file" })
@@ -39,26 +48,35 @@ vim.keymap.set("n", "<Leader>fl", ":Telescope find_files<CR>", { silent = true, 
 vim.keymap.set("n", "<Leader>fb", ":Telescope buffers<CR>", { silent = true, noremap = true, desc = "Search buffers" })
 vim.keymap.set("n", "<Leader>fg", ":Telescope git_status<CR>", { silent = true, noremap = true, desc = "Git status" })
 vim.keymap.set("n", "<Leader>fp", ":NeovimProjectHistory<CR>", { silent = true, noremap = true, desc = "Projects directories" })
-vim.keymap.set("n", "<Leader>w", ":WinShift<CR>", { silent = true, noremap = true, desc = "Move window" })
-vim.keymap.set("n", "<Leader>r", ":Registers<CR>", { silent = true, noremap = true, desc = "Registers" })
-vim.keymap.set("n", "<Leader>`", ":ToggleTerm direction=horizontal<CR>", { silent = true, noremap = true, desc = "Terminal" })
-vim.keymap.set("n", "<Leader>m", ":TSJToggle<CR>", { silent = true, noremap = true, desc = "Expand block of code" })
-vim.keymap.set("n", "<Leader>M", ":lua require('treesj').toggle({ split = {recursive = true} })<CR>", { silent = true, noremap = true, desc = "Expand all blocks" })
-vim.keymap.set("n", "<Leader>hh", ":lua require('harpoon.ui').toggle_quick_menu()<CR>", { silent = true, noremap = true, desc = "Harpoon menu" })
-vim.keymap.set("n", "<Leader>ha", ":lua require('harpoon.mark').add_file()<CR>", { silent = true, noremap = true, desc = "Harpoon add" })
-vim.keymap.set("n", "<Leader>hn", ":lua require('harpoon.ui').nav_next()<CR>", { silent = true, noremap = true, desc = "Harpoon next" })
-vim.keymap.set("n", "<Leader>hp", ":lua require('harpoon.ui').nav_prev()<CR>", { silent = true, noremap = true, desc = "Harpoon prev" })
-vim.keymap.set("n", "<Leader>z", ":ZenMode<CR>", { silent = true, noremap = true, desc = "Zen mode" })
-vim.keymap.set("n", "<Leader>u", ":lua require('undotree').toggle()<CR>", { silent = true, noremap = true, desc = "Undo history" })
-vim.keymap.set("n", "<Leader>s", ":lua require('spectre').toggle()<CR>", { silent = true, noremap = true, desc = "Search and replace" })
+vim.keymap.set("n", "<Leader>fn", ":Telescope notify<CR>", { silent = true, noremap = true, desc = "Notifications" })
+
+-- flash
+vim.keymap.set({"n", "x", "o"}, "s", "<cmd>lua require('flash').jump()<CR>", { silent = true, noremap = true, desc = "Flash" })
+vim.keymap.set({"n", "x", "o"}, "S", "<cmd>lua require('flash').treesitter()<CR>", { silent = true, noremap = true, desc = "Flash treesitter" })
+vim.keymap.set("o", "r", "<cmd>lua require('flash').remote()<CR>", { silent = true, noremap = true, desc = "Remote flash" })
+vim.keymap.set({"x", "o"}, "R", "<cmd>lua require('flash').treesitter_search()<CR>", { silent = true, noremap = true, desc = "Treesitter search" })
+vim.keymap.set("c", "<C-s>", "<cmd>lua require('flash').toggle()<CR>", { silent = true, noremap = true, desc = "Toggle flash search" })
+
+-- git-signs
 vim.keymap.set("n", "<Leader>Ghp", ":Gitsigns preview_hunk<CR>", { silent = true, noremap = true, desc = "Git preview hunk" })
 vim.keymap.set("n", "<Leader>Ghr", ":Gitsigns reset_hunk<CR>", { silent = true, noremap = true, desc = "Git reset hunk" })
 vim.keymap.set("n", "<Leader>Ghs", ":Gitsigns stage_hunk<CR>", { silent = true, noremap = true, desc = "Git stage hunk" })
+
+-- trouble
 vim.keymap.set("n", "<Leader>xx", ":Trouble diagnostics toggle<CR>", { silent = true, noremap = true, desc = "Diagnostics (Trouble)" })
 vim.keymap.set("n", "<Leader>xX", ":Trouble diagnostics toggle filter.buf=0<CR>", { silent = true, noremap = true, desc = "Buffer Diagnostics (Trouble)" })
 vim.keymap.set("n", "<Leader>cs", ":Trouble symbols toggle focus=false<CR>", { silent = true, noremap = true, desc = "Symbols (Trouble)" })
 vim.keymap.set("n", "<Leader>cl", ":Trouble lsp toggle focus=false win.position=right<CR>", { silent = true, noremap = true, desc = "LSP Definitions (Trouble)" })
-vim.keymap.set("n", "<Leader>?", ":lua require('which-key').show({keys='<Leader>'})<CR>", { silent = true, desc = "Show keymaps" })
+
+-- treesj
+vim.keymap.set("n", "<Leader>m", ":TSJToggle<CR>", { silent = true, noremap = true, desc = "Expand block of code" })
+vim.keymap.set("n", "<Leader>M", ":lua require('treesj').toggle({ split = {recursive = true} })<CR>", { silent = true, noremap = true, desc = "Expand all blocks" })
+
+-- harpoon
+vim.keymap.set("n", "<Leader>hh", ":lua require('harpoon.ui').toggle_quick_menu()<CR>", { silent = true, noremap = true, desc = "Harpoon menu" })
+vim.keymap.set("n", "<Leader>ha", ":lua require('harpoon.mark').add_file()<CR>", { silent = true, noremap = true, desc = "Harpoon add" })
+vim.keymap.set("n", "<Leader>hn", ":lua require('harpoon.ui').nav_next()<CR>", { silent = true, noremap = true, desc = "Harpoon next" })
+vim.keymap.set("n", "<Leader>hp", ":lua require('harpoon.ui').nav_prev()<CR>", { silent = true, noremap = true, desc = "Harpoon prev" })
 
 -- resize windows
 vim.keymap.set("n", "<A-Left>", ":lua require('smart-splits').resize_left()<CR>", { silent = true, noremap = true, desc = "Resize window left" })
