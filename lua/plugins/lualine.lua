@@ -31,22 +31,6 @@ return {
       return string.format("%dx%d", height, width)
     end
 
-    local function wordCount()
-      if vim.bo.buftype ~= "" then
-        return ""
-      end
-      if vim.bo.filetype == "text" or vim.bo.filetype == "markdown" then
-        local wc = vim.fn.wordcount()
-        if vim.fn.mode():match("[Vv]") then
-          return string.format("%d words", wc.visual_words or 0)
-        else
-          return string.format("%d words", wc.words or 0)
-        end
-      else
-        return ""
-      end
-    end
-
     require("lualine").setup({
       options = {
         disabled_filetypes = {
@@ -65,7 +49,7 @@ return {
             symbols = { error = " ", warn = " ", info = " ", hint = " " },
           },
         },
-        lualine_x = { "searchcount", wordCount, "filetype" },
+        lualine_x = { "searchcount", "filetype" },
         lualine_y = { "progress" },
         lualine_z = { "location" },
       },

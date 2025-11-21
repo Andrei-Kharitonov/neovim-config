@@ -78,6 +78,15 @@ vim.keymap.set("n", "<Leader>ha", ":lua require('harpoon.mark').add_file()<CR>",
 vim.keymap.set("n", "<Leader>hn", ":lua require('harpoon.ui').nav_next()<CR>", { silent = true, noremap = true, desc = "Harpoon next" })
 vim.keymap.set("n", "<Leader>hp", ":lua require('harpoon.ui').nav_prev()<CR>", { silent = true, noremap = true, desc = "Harpoon prev" })
 
+-- icons picker
+vim.keymap.set("n", "<Leader><Leader>i", ":IconPickerNormal<CR>", { silent = true, noremap = true, desc = "Icon picker" })
+vim.keymap.set("n", "<Leader><Leader>y", ":IconPickerYank<CR>", { silent = true, noremap = true, desc = "Icon picker yank" })
+
+-- markdown render
+vim.keymap.set("n", "<Leader><Leader>mt", ":RenderMarkdown buf_toggle<CR>", { silent = true, noremap = true, desc = "Markdown render toggle" })
+vim.keymap.set("n", "<Leader><Leader>mp", ":RenderMarkdown preview<CR>", { silent = true, noremap = true, desc = "Markdown render preview" })
+vim.keymap.set("n", "<Leader><Leader>mn", ":lua require('nabla').popup()<CR>", { silent = true, noremap = true, desc = "Formula preview" })
+
 -- resize windows
 vim.keymap.set("n", "<A-Left>", ":lua require('smart-splits').resize_left()<CR>", { silent = true, noremap = true, desc = "Resize window left" })
 vim.keymap.set("n", "<A-Down>", ":lua require('smart-splits').resize_down()<CR>", { silent = true, noremap = true, desc = "Resize window down" })

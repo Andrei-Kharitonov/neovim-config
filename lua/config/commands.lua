@@ -18,3 +18,19 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.formatoptions:remove({ "r", "o" })
   end,
 })
+
+-- Wrap lines in .md, .txt
+vim.api.nvim_create_autocmd('BufWinEnter', {
+    pattern = { '*.md', '*.txt' },
+    callback = function()
+      vim.opt_local.wrap = true
+      vim.opt_local.linebreak = true
+    end,
+})
+vim.api.nvim_create_autocmd({ 'BufWinLeave' }, {
+    pattern = { '*.md', '*.txt' },
+    callback = function()
+      vim.opt_local.wrap = false
+      vim.opt_local.linebreak = false
+    end,
+})

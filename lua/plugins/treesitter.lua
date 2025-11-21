@@ -29,6 +29,8 @@ return {
         "gitignore",
         -- docs
         "markdown",
+        "markdown_inline",
+        "latex",
         "vimdoc",
         "comment",
         "xml",
