@@ -7,10 +7,15 @@ return {
       multi_window = false,
     },
     label = {
-      min_pattern_length = 2,
+      min_pattern_length = 1,
     },
     prompt = {
       prefix = { { "=", "FlashPromptIcon" } },
+    },
+    modes = {
+      char = {
+        enabled = false,
+      },
     },
   },
 }

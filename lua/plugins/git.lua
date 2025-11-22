@@ -22,7 +22,7 @@ return {
       "nvim-lua/plenary.nvim",
     },
     keys = {
-      { "<Leader>GG", ":LazyGit<CR>", desc = "LazyGit" },
+      { "<Leader>gg", ":LazyGit<CR>", desc = "LazyGit" },
     },
   },
 }
