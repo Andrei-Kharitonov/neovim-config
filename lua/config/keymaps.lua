@@ -1,6 +1,7 @@
 -- Keymaps
 vim.g.mapleader = " " -- map <Leader> key
 vim.g.maplocalleader = "\\"
+
 local function opts(d)
   return { silent = true, noremap = true, desc = d }
 end
@@ -9,6 +10,7 @@ vim.keymap.set("i", "jj", "<ESC>", opts("Double j to esc"))
 vim.keymap.set("n", "<Leader>/", ":noh<CR>", opts("Clear search highlight"))
 vim.keymap.set("n", "<Leader>dd", ":BufDel<CR>", opts("Delete buffer"))
 vim.keymap.set("n", "<Leader>dh", ":DelHiddenBufs<CR>", opts("Delete all hidden buffers"))
+vim.keymap.set("v", "<Leader>p", "\"_dP", opts("Paste without copy deleted"))
 vim.keymap.set("v", "<C-c>", "\"+y", opts("Copy to clipboard"))
 vim.keymap.set("i", "<C-v>", "<C-r>+", opts("Paste from clipboard"))
 vim.keymap.set("v", "<C-x>", "\"+d", opts("Cut to clipboard"))
@@ -20,10 +22,8 @@ vim.keymap.set("i", "<C-h>", "<Left>", opts())
 vim.keymap.set("i", "<C-j>", "<Down>", opts())
 vim.keymap.set("i", "<C-k>", "<Up>", opts())
 vim.keymap.set("i", "<C-l>", "<Right>", opts())
-vim.keymap.set("n", "<A-h>", "3h", opts())
-vim.keymap.set("n", "<A-j>", "3j", opts())
-vim.keymap.set("n", "<A-k>", "3k", opts())
-vim.keymap.set("n", "<A-l>", "3l", opts())
+vim.keymap.set("n", "<C-d>", "<C-d>zz", opts())
+vim.keymap.set("n", "<C-u>", "<C-u>zz", opts())
 
 -- Lsp
 vim.keymap.set("n", "K", vim.lsp.buf.hover, opts("Lsp show docs"))
