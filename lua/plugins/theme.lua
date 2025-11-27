@@ -14,6 +14,7 @@ return {
     vim.api.nvim_set_hl(0, "TelescopeBorder", { link = "Normal" })
     -- fix floating windows colors for catppuccin-mocha
     vim.api.nvim_set_hl(0, "FloatBorder", { link = "Normal" })
+    vim.api.nvim_set_hl(0, "FloatTitle", { link = "Normal" })
     vim.api.nvim_set_hl(0, "NormalFloat", { link = "Normal" })
 
     -- bold window borders

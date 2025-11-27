@@ -31,17 +31,14 @@ return {
       return string.format("%dx%d", height, width)
     end
 
-    local function harpoon_index()
-      local current_file = vim.fn.bufname()
-      local items = require("harpoon"):list().items
-
-      for index, item in ipairs(items) do
-        if item.value == current_file then
-          return string.format("[%d/%d]", index, #items)
-        end
+    local function grappleTagIndex()
+      local grapple = require("grapple")
+      local tags = #grapple.tags()
+      if grapple.find() ~= nil then
+        return string.format(" [%d/%d]", grapple.name_or_index(), tags)
+      else
+        return ""
       end
-
-      return ""
     end
 
     require("lualine").setup({
@@ -77,8 +74,8 @@ return {
       -- top line
       winbar = {
         lualine_a = {},
-        lualine_b = { { "filename", path = 1, shorting_target = 5 }, harpoon_index },
-        lualine_c = {  },
+        lualine_b = { { "filename", path = 1, shorting_target = 5 }, grappleTagIndex },
+        lualine_c = {},
         lualine_x = { "encoding", { "fileformat", symbols = { unix = "unix", dos = "dos", mac = "mac" } } },
         lualine_y = {},
         lualine_z = {},
@@ -86,7 +83,7 @@ return {
       inactive_winbar = {
         lualine_a = {},
         lualine_b = {},
-        lualine_c = { { "filename", path = 1, shorting_target = 5 }, harpoon_index },
+        lualine_c = { { "filename", path = 1, shorting_target = 5 }, grappleTagIndex },
         lualine_x = { "encoding", { "fileformat", symbols = { unix = "unix", dos = "dos", mac = "mac" } } },
         lualine_y = {},
         lualine_z = {},
