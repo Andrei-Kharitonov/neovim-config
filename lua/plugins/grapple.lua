@@ -1,4 +1,4 @@
--- Jumps between files
+-- Jump between files
 return {
   "cbochs/grapple.nvim",
   opts = {

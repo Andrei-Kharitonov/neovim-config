@@ -5,6 +5,24 @@ return {
     "nvim-tree/nvim-web-devicons",
   },
   config = function()
+    local ignoreFiletypes = {
+      "neo-tree",
+      "dashboard",
+      "TelescopePrompt",
+      "grapple",
+      "undotree",
+      "registers",
+    }
+
+    local function hasValue(tab, val)
+      for _, value in ipairs(tab) do
+        if value == val then
+          return true
+        end
+      end
+      return false
+    end
+
     local function visualLinesCount()
       local isVisualMode = vim.fn.mode():find("[Vv]")
       if not isVisualMode then
@@ -47,6 +65,8 @@ return {
           winbar = { "neo-tree", "dashboard" },
         },
         globalstatus = true,
+        component_separators = { left = '│', right = '│'},
+        section_separators = { left = '', right = ''},
       },
       -- bottom line
       sections = {
@@ -58,35 +78,16 @@ return {
             sources = { "nvim_lsp" },
             symbols = { error = " ", warn = " ", info = " ", hint = " " },
           },
+          {
+            "filename",
+            cond = function()
+              return not hasValue(ignoreFiletypes, vim.bo.filetype)
+            end,
+          },
         },
-        lualine_x = { "searchcount", "filetype" },
-        lualine_y = { "progress" },
+        lualine_x = { "searchcount", "filetype", "encoding", "fileformat" },
+        lualine_y = { grappleTagIndex, "progress" },
         lualine_z = { "location" },
-      },
-      inactive_sections = {
-        lualine_a = {},
-        lualine_b = {},
-        lualine_c = { "diagnostics" },
-        lualine_x = { "location" },
-        lualine_y = {},
-        lualine_z = {},
-      },
-      -- top line
-      winbar = {
-        lualine_a = {},
-        lualine_b = { { "filename", path = 1, shorting_target = 5 }, grappleTagIndex },
-        lualine_c = {},
-        lualine_x = { "encoding", { "fileformat", symbols = { unix = "unix", dos = "dos", mac = "mac" } } },
-        lualine_y = {},
-        lualine_z = {},
-      },
-      inactive_winbar = {
-        lualine_a = {},
-        lualine_b = {},
-        lualine_c = { { "filename", path = 1, shorting_target = 5 }, grappleTagIndex },
-        lualine_x = { "encoding", { "fileformat", symbols = { unix = "unix", dos = "dos", mac = "mac" } } },
-        lualine_y = {},
-        lualine_z = {},
       },
     })
   end,
