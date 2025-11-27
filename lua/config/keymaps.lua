@@ -1,7 +1,4 @@
 -- Keymaps
-vim.g.mapleader = " " -- map <Leader> key
-vim.g.maplocalleader = "\\"
-
 local function opts(d)
   return { silent = true, noremap = true, desc = d }
 end
@@ -80,19 +77,20 @@ vim.keymap.set("n", "<Leader>tt", ":TSJToggle<CR>", opts("Expand/shrink block of
 vim.keymap.set("n", "<Leader>T", ":lua require('treesj').toggle({ split = {recursive = true} })<CR>", opts("Expand/shrink all blocks"))
 
 -- harpoon
-vim.keymap.set("n", "<Leader>hh", ":lua require('harpoon.ui').toggle_quick_menu()<CR>", opts("Harpoon menu"))
-vim.keymap.set("n", "<Leader>ha", ":lua require('harpoon.mark').add_file()<CR>", opts("Harpoon add"))
-vim.keymap.set("n", "<Leader>hn", ":lua require('harpoon.ui').nav_next()<CR>", opts("Harpoon next"))
-vim.keymap.set("n", "<Leader>hp", ":lua require('harpoon.ui').nav_prev()<CR>", opts("Harpoon prev"))
-vim.keymap.set("n", "<Leader>1", ":lua require('harpoon.ui').nav_file(1)<CR>", opts("Harpoon file 1"))
-vim.keymap.set("n", "<Leader>2", ":lua require('harpoon.ui').nav_file(2)<CR>", opts("Harpoon file 2"))
-vim.keymap.set("n", "<Leader>3", ":lua require('harpoon.ui').nav_file(3)<CR>", opts("Harpoon file 3"))
-vim.keymap.set("n", "<Leader>4", ":lua require('harpoon.ui').nav_file(4)<CR>", opts("Harpoon file 4"))
-vim.keymap.set("n", "<Leader>5", ":lua require('harpoon.ui').nav_file(5)<CR>", opts("Harpoon file 5"))
-vim.keymap.set("n", "<Leader>6", ":lua require('harpoon.ui').nav_file(6)<CR>", opts("Harpoon file 6"))
-vim.keymap.set("n", "<Leader>7", ":lua require('harpoon.ui').nav_file(7)<CR>", opts("Harpoon file 7"))
-vim.keymap.set("n", "<Leader>8", ":lua require('harpoon.ui').nav_file(8)<CR>", opts("Harpoon file 8"))
-vim.keymap.set("n", "<Leader>9", ":lua require('harpoon.ui').nav_file(9)<CR>", opts("Harpoon file 9"))
+local harpoon = require("harpoon")
+vim.keymap.set("n", "<Leader>hh", function() harpoon.ui:toggle_quick_menu(harpoon:list(), { title_pos = "center" }) end, opts("Harpoon menu"))
+vim.keymap.set("n", "<Leader>ha", function() harpoon:list():add() end, opts("Harpoon add"))
+vim.keymap.set("n", "<Leader>hn", function() harpoon:list():next({ ui_nav_wrap = true }) end, opts("Harpoon next"))
+vim.keymap.set("n", "<Leader>hp", function() harpoon:list():prev({ ui_nav_wrap = true }) end, opts("Harpoon prev"))
+vim.keymap.set("n", "<Leader>1", function() harpoon:list():select(1) end)
+vim.keymap.set("n", "<Leader>2", function() harpoon:list():select(2) end)
+vim.keymap.set("n", "<Leader>3", function() harpoon:list():select(3) end)
+vim.keymap.set("n", "<Leader>4", function() harpoon:list():select(4) end)
+vim.keymap.set("n", "<Leader>5", function() harpoon:list():select(5) end)
+vim.keymap.set("n", "<Leader>6", function() harpoon:list():select(6) end)
+vim.keymap.set("n", "<Leader>7", function() harpoon:list():select(7) end)
+vim.keymap.set("n", "<Leader>8", function() harpoon:list():select(8) end)
+vim.keymap.set("n", "<Leader>9", function() harpoon:list():select(9) end)
 
 -- icons picker
 vim.keymap.set("n", "<Leader><Leader>i", ":IconPickerNormal<CR>", opts("Icon picker"))

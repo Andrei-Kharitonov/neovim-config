@@ -15,3 +15,6 @@ vim.opt.showtabline = 2
 vim.opt.showmode = false
 vim.opt.showcmd = false
 vim.opt.shortmess = "ltToOCFsS"
+
+vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"

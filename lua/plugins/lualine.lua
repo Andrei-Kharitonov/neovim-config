@@ -31,6 +31,19 @@ return {
       return string.format("%dx%d", height, width)
     end
 
+    local function harpoon_index()
+      local current_file = vim.fn.bufname()
+      local items = require("harpoon"):list().items
+
+      for index, item in ipairs(items) do
+        if item.value == current_file then
+          return string.format("[%d/%d]", index, #items)
+        end
+      end
+
+      return ""
+    end
+
     require("lualine").setup({
       options = {
         disabled_filetypes = {
@@ -64,17 +77,17 @@ return {
       -- top line
       winbar = {
         lualine_a = {},
-        lualine_b = { { "filename", path = 1, shorting_target = 5 } },
-        lualine_c = {},
-        lualine_x = { "encoding", "fileformat" },
+        lualine_b = { { "filename", path = 1, shorting_target = 5 }, harpoon_index },
+        lualine_c = {  },
+        lualine_x = { "encoding", { "fileformat", symbols = { unix = "unix", dos = "dos", mac = "mac" } } },
         lualine_y = {},
         lualine_z = {},
       },
       inactive_winbar = {
         lualine_a = {},
         lualine_b = {},
-        lualine_c = { { "filename", path = 1, shorting_target = 5 } },
-        lualine_x = { "encoding", "fileformat" },
+        lualine_c = { { "filename", path = 1, shorting_target = 5 }, harpoon_index },
+        lualine_x = { "encoding", { "fileformat", symbols = { unix = "unix", dos = "dos", mac = "mac" } } },
         lualine_y = {},
         lualine_z = {},
       },
