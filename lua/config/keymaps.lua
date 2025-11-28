@@ -5,14 +5,15 @@ end
 
 vim.keymap.set("i", "jj", "<ESC>", opts("Double j to esc"))
 vim.keymap.set("n", "<Leader>/", ":noh<CR>", opts("Clear search highlight"))
-vim.keymap.set("n", "<Leader>dd", ":BufDel<CR>", opts("Delete buffer"))
 vim.keymap.set("n", "<Leader>dh", ":DelHiddenBufs<CR>", opts("Delete all hidden buffers"))
 vim.keymap.set("v", "<Leader>p", "\"_dP", opts("Paste without copy deleted"))
 vim.keymap.set("v", "<C-c>", "\"+y", opts("Copy to clipboard"))
 vim.keymap.set("i", "<C-v>", "<C-r>+", opts("Paste from clipboard"))
 vim.keymap.set("v", "<C-x>", "\"+d", opts("Cut to clipboard"))
-vim.keymap.set("n", "<C-/>", "gcc", opts("Comment line"))
-vim.keymap.set("v", "<C-/>", "gc", opts("Comment selected lines"))
+vim.keymap.set("n", "<C-/>", "gcc", { silent = true, remap = true, desc = "Comment line" })
+vim.keymap.set("v", "<C-/>", "gc", { silent = true, remap = true, desc = "Comment selected lines" })
+vim.keymap.set("n", "<C-_>", "gcc", { silent = true, remap = true, desc = "Comment line" }) -- ctrl+/ for tmux
+vim.keymap.set("v", "<C-_>", "gc", { silent = true, remap = true, desc = "Comment selected lines" }) -- ctrl+/ for tmux
 
 -- Navigation
 vim.keymap.set("i", "<C-h>", "<Left>", opts())
@@ -39,7 +40,7 @@ vim.keymap.set("n", "<Leader>r", ":Registers<CR>", opts("Registers"))
 vim.keymap.set("n", "<Leader>z", ":ZenMode<CR>", opts("Zen mode"))
 vim.keymap.set("n", "<Leader>u", ":lua require('undotree').toggle()<CR>", opts("Undo history"))
 vim.keymap.set("n", "<Leader>s", ":lua require('spectre').toggle()<CR>", opts("Search and replace"))
-vim.keymap.set("n", "<Leader>yz", ":Yazi cwd<CR>", opts("Open yazi"))
+vim.keymap.set("n", "<Leader>dd", ":BufDel<CR>", opts("Delete buffer"))
 vim.keymap.set("n", "<Leader>?", ":lua require('which-key').show({keys='<Leader>'})<CR>", opts("Show keymaps"))
 
 -- telescope
