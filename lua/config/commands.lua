@@ -19,18 +19,41 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+-- Toggle soft wrap
+vim.api.nvim_create_user_command("WrapToggle", function()
+  ---@diagnostic disable-next-line: undefined-field
+  local wrap = vim.opt_local.wrap:get()
+
+  if wrap then
+    vim.opt_local.wrap = false
+    vim.opt_local.linebreak = false
+    vim.opt_local.breakindent = false
+  else
+    vim.opt_local.wrap = true
+    vim.opt_local.linebreak = true
+    vim.opt_local.breakindent = true
+  end
+end, { desc = "Toggle soft wrap" })
+
+-- Toggle vertical line
+vim.api.nvim_create_user_command("VerticalLineToggle", function()
+  ---@diagnostic disable-next-line: undefined-field
+  local cc = vim.opt_local.colorcolumn:get()
+
+  if #cc == 0 then
+    vim.opt_local.colorcolumn = "78"
+  else
+    vim.opt_local.colorcolumn = ""
+  end
+end, { desc = "Toggle vertical line" })
+
 -- Wrap lines in .md, .txt
-vim.api.nvim_create_autocmd('BufWinEnter', {
-    pattern = { '*.md', '*.txt' },
-    callback = function()
-      vim.opt_local.wrap = true
-      vim.opt_local.linebreak = true
-    end,
-})
-vim.api.nvim_create_autocmd({ 'BufWinLeave' }, {
-    pattern = { '*.md', '*.txt' },
-    callback = function()
-      vim.opt_local.wrap = false
-      vim.opt_local.linebreak = false
-    end,
+vim.api.nvim_create_autocmd("BufWinEnter", {
+  pattern = { "*.md", "*.txt" },
+  callback = function()
+    ---@diagnostic disable-next-line: undefined-field
+    if not vim.opt_local.wrap:get() then
+      vim.cmd("WrapToggle")
+    end
+  end,
 })

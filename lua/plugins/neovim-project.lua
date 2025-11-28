@@ -18,9 +18,7 @@ return {
     dashboard_mode = true,
     last_session_on_startup = false,
     forget_project_keys = {
-      -- insert mode: Ctrl+d
       i = "<C-d>",
-      -- normal mode: d
       n = "d",
     },
   },

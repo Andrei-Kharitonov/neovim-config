@@ -4,7 +4,6 @@ return {
   dependencies = {
     "nvim-tree/nvim-web-devicons",
   },
-  -- event = 'VimEnter',
   config = function()
     require("dashboard").setup({
       theme = "doom",
@@ -31,7 +30,7 @@ return {
           {
             icon = " ",
             desc = "Find files",
-            action = "Telescope find_files",
+            action = "Telescope file_browser",
             key_format = "  %s",
             key = "f",
           },
