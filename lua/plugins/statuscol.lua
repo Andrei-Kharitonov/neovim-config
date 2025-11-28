@@ -19,6 +19,14 @@ return {
           condition = { builtin.not_empty },
         },
         {
+          sign = {
+            name = { ".*" }, -- marks
+            maxwidth = 1,
+            colwidth = 1,
+          },
+          condition = { builtin.not_empty },
+        },
+        {
           text = { builtin.lnumfunc },
           condition = { true, builtin.not_empty },
         },

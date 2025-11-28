@@ -65,8 +65,8 @@ return {
           winbar = { "neo-tree", "dashboard" },
         },
         globalstatus = true,
-        component_separators = { left = '│', right = '│'},
-        section_separators = { left = '', right = ''},
+        component_separators = { left = "│", right = "│" },
+        section_separators = { left = "", right = "" },
       },
       -- bottom line
       sections = {
