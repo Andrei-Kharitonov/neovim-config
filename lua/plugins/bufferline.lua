@@ -11,13 +11,14 @@ return {
     bufferline.setup({
       options = {
         numbers = function(opts) -- adds grapple tag id to buf id
-          if grapple.exists({buffer = opts.id}) then
-            local index = grapple.name_or_index({buffer = opts.id})
+          if grapple.exists({ buffer = opts.id }) then
+            local index = grapple.name_or_index({ buffer = opts.id })
             return string.format("%s|%s", opts.id, index)
           else
             return string.format("%s", opts.id)
           end
         end,
+        indicator = { icon = "▎" },
         diagnostics = "nvim_lsp",
         diagnostics_indicator = function(_, _, diagnostics, _)
           local symbols = { error = " ", warn = " " }
@@ -31,7 +32,7 @@ return {
           return table.concat(result, " ")
         end,
         style_preset = bufferline.style_preset.no_italic,
-        buffer_close_icon = "",
+        show_buffer_close_icons = false,
         offsets = {
           {
             filetype = "neo-tree",
@@ -39,7 +40,33 @@ return {
             padding = 1,
           },
         },
-        separator_style = { "", "" },
+      },
+      -- fix highlights for catppuccin theme
+      highlights = {
+        separator = {
+          fg = {
+            attribute = "fg",
+            highlight = "Pmenu",
+          },
+        },
+        indicator_selected = {
+          fg = {
+            attribute = "fg",
+            highlight = "Pmenu",
+          },
+        },
+        tab_separator = {
+          fg = {
+            attribute = "fg",
+            highlight = "Pmenu",
+          },
+        },
+        tab_separator_selected = {
+          fg = {
+            attribute = "fg",
+            highlight = "Pmenu",
+          },
+        },
       },
     })
   end,

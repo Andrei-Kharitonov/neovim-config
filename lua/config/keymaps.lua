@@ -66,6 +66,7 @@ vim.keymap.set("n", "<Leader>z", ":ZenMode<CR>", opts("Zen mode"))
 vim.keymap.set("n", "<Leader>u", ":lua require('undotree').toggle()<CR>", opts("Undo history"))
 vim.keymap.set("n", "<Leader>S", ":lua require('spectre').toggle()<CR>", opts("Search and replace"))
 vim.keymap.set("n", "<Leader>dd", ":BufDel<CR>", opts("Delete buffer"))
+vim.keymap.set("n", "<Leader>N", ":GlobalNote<CR>", opts("Open global note"))
 vim.keymap.set("n", "<Leader>?", ":lua require('which-key').show({keys='<Leader>'})<CR>", opts("Show keymaps"))
 
 -- telescope
