@@ -16,13 +16,31 @@ vim.opt.showmode = false
 vim.opt.showcmd = false
 vim.opt.shortmess = "ltToOCFsS"
 vim.opt.showbreak = "↪ "
+vim.opt.fillchars = {
+  horiz = "━",
+  horizup = "┻",
+  horizdown = "┳",
+  vert = "┃",
+  vertleft = "┫",
+  vertright = "┣",
+  verthoriz = "╋",
+}
 
-vim.g.mapleader = " "
+vim.g.mapleader = " " -- <Leader> = <Space>
 vim.g.maplocalleader = "\\"
 
 vim.diagnostic.config({
+  severity_sort = true,
   virtual_text = true,
   float = {
     border = "rounded",
+  },
+  signs = {
+    text = {
+      [vim.diagnostic.severity.HINT] = " ",
+      [vim.diagnostic.severity.INFO] = " ",
+      [vim.diagnostic.severity.WARN] = " ",
+      [vim.diagnostic.severity.ERROR] = " ",
+    },
   },
 })

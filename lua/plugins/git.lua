@@ -21,6 +21,9 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim",
     },
+    config = function()
+      vim.g.lazygit_floating_window_scaling_factor = 0.85
+    end,
     keys = {
       { "<Leader>gg", ":LazyGit<CR>", desc = "LazyGit" },
     },

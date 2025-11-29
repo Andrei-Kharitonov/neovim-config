@@ -14,6 +14,30 @@ vim.keymap.set("n", "<C-/>", "gcc", { silent = true, remap = true, desc = "Comme
 vim.keymap.set("v", "<C-/>", "gc", { silent = true, remap = true, desc = "Comment selected lines" })
 vim.keymap.set("n", "<C-_>", "gcc", { silent = true, remap = true, desc = "Comment line" }) -- ctrl+/ for tmux
 vim.keymap.set("v", "<C-_>", "gc", { silent = true, remap = true, desc = "Comment selected lines" }) -- ctrl+/ for tmux
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", opts("Move selected up"))
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", opts("Move selected down"))
+vim.keymap.set("n", "J", "mzJ`z", opts("Join lines"))
+vim.keymap.set(
+  "n",
+  "<Leader>s",
+  [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
+  { noremap = true, desc = "Replace word under the cursor in file" }
+)
+vim.keymap.set(
+  "v",
+  "<Leader>s",
+  "y:%s/\\V<C-r>\"/<C-r>\"/gI<Left><Left><Left>",
+  { noremap = true, desc = "Replace selected string in file" }
+)
+vim.keymap.set(
+  "v",
+  "<Leader>q",
+  function ()
+    local path = vim.fn.expand("%:h")
+    return string.format("y:vim /<C-r>\"/ %s/**", path)
+  end,
+  { noremap = true, expr = true, desc = "Create quickfix list" }
+)
 
 -- Navigation
 vim.keymap.set("i", "<C-h>", "<Left>", opts())
@@ -27,6 +51,7 @@ vim.keymap.set("n", "H", ":bprev<CR>", opts("Buffer prev"))
 
 -- Lsp
 vim.keymap.set("n", "K", vim.lsp.buf.hover, opts("Lsp show docs"))
+vim.keymap.set("n", "<Leader>R", vim.lsp.buf.rename, opts("Lsp rename"))
 vim.keymap.set("n", "<Leader>gd", vim.lsp.buf.definition, opts("Lsp go definition"))
 vim.keymap.set("n", "<Leader>gr", vim.lsp.buf.references, opts("Lsp show references"))
 vim.keymap.set("n", "<Leader>gf", vim.lsp.buf.format, opts("Lsp format file"))
@@ -39,7 +64,7 @@ vim.keymap.set("n", "<Leader>w", ":WinShift<CR>", opts("Move window"))
 vim.keymap.set("n", "<Leader>r", ":Registers<CR>", opts("Registers"))
 vim.keymap.set("n", "<Leader>z", ":ZenMode<CR>", opts("Zen mode"))
 vim.keymap.set("n", "<Leader>u", ":lua require('undotree').toggle()<CR>", opts("Undo history"))
-vim.keymap.set("n", "<Leader>s", ":lua require('spectre').toggle()<CR>", opts("Search and replace"))
+vim.keymap.set("n", "<Leader>S", ":lua require('spectre').toggle()<CR>", opts("Search and replace"))
 vim.keymap.set("n", "<Leader>dd", ":BufDel<CR>", opts("Delete buffer"))
 vim.keymap.set("n", "<Leader>?", ":lua require('which-key').show({keys='<Leader>'})<CR>", opts("Show keymaps"))
 
