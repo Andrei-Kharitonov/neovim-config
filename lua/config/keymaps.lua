@@ -46,8 +46,6 @@ vim.keymap.set("i", "<C-k>", "<Up>", opts())
 vim.keymap.set("i", "<C-l>", "<Right>", opts())
 vim.keymap.set("n", "<C-d>", "<C-d>zz", opts())
 vim.keymap.set("n", "<C-u>", "<C-u>zz", opts())
-vim.keymap.set("n", "L", ":BufferLineCycleNext<CR>", opts("Buffer next"))
-vim.keymap.set("n", "H", ":BufferLineCyclePrev<CR>", opts("Buffer prev"))
 
 -- Lsp
 vim.keymap.set("n", "K", vim.lsp.buf.hover, opts("Lsp show docs"))
@@ -99,16 +97,21 @@ vim.keymap.set("n", "<Leader>cs", ":Trouble symbols toggle focus=false<CR>", opt
 vim.keymap.set("n", "<Leader>cl", ":Trouble lsp toggle focus=false win.position=right<CR>", opts("LSP Definitions (Trouble)"))
 
 -- treesj
-vim.keymap.set("n", "<Leader>ts", ":TSJSplit<CR>", opts("Expand block of code"))
-vim.keymap.set("n", "<Leader>tj", ":TSJJoin<CR>", opts("Shrink block of code"))
-vim.keymap.set("n", "<Leader>tt", ":TSJToggle<CR>", opts("Expand/shrink block of code"))
-vim.keymap.set("n", "<Leader>T", ":lua require('treesj').toggle({ split = {recursive = true} })<CR>", opts("Expand/shrink all blocks"))
+vim.keymap.set("n", "<Leader>m", ":TSJToggle<CR>", opts("Expand/shrink block of code"))
+vim.keymap.set("n", "<Leader>M", ":lua require('treesj').toggle({ split = {recursive = true} })<CR>", opts("Expand/shrink all blocks"))
+
+-- tabs
+vim.api.nvim_set_keymap("n", "<Leader>ta", ":$tabnew<CR>", opts("New tab"))
+vim.api.nvim_set_keymap("n", "<Leader>tc", ":tabclose<CR>", opts("Close tab"))
+vim.api.nvim_set_keymap("n", "<Leader>to", ":tabonly<CR>", opts("Close all other tabs"))
+vim.api.nvim_set_keymap("n", "<leader>tn", ":tabn<CR>", opts("Next tab"))
+vim.api.nvim_set_keymap("n", "<leader>tp", ":tabp<CR>", opts("Prev tab"))
 
 -- grapple
 vim.keymap.set("n", "<Leader>hh", ":Grapple toggle_tags<CR>", opts("Grapple menu"))
 vim.keymap.set("n", "<Leader>ha", ":Grapple toggle<CR>", opts("Grapple add file"))
-vim.keymap.set("n", "<Leader>hn", ":Grapple cycle_tags next<CR>", opts("Grapple tag next"))
-vim.keymap.set("n", "<Leader>hp", ":Grapple cycle_tags prev<CR>", opts("Grapple tag prev"))
+vim.keymap.set("n", "L", ":Grapple cycle_tags next<CR>", opts("Grapple tag next"))
+vim.keymap.set("n", "H", ":Grapple cycle_tags prev<CR>", opts("Grapple tag prev"))
 vim.keymap.set("n", "<Leader>1", ":Grapple select index=1<CR>", opts())
 vim.keymap.set("n", "<Leader>2", ":Grapple select index=2<CR>", opts())
 vim.keymap.set("n", "<Leader>3", ":Grapple select index=3<CR>", opts())
