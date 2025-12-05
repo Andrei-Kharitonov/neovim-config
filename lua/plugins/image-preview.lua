@@ -20,6 +20,8 @@ return {
       },
       max_width_window_percentage = 80,
       max_height_window_percentage = 80,
+      -- ignore virtual url in mini.files preview
+      hijack_file_patterns = { "%.png$", "%.jpg$", "%.jpeg$", "%.gif$", "%.webp$", "%.avif$" }
     })
   end,
 }

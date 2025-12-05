@@ -18,8 +18,7 @@ return {
             return string.format("%s", opts.id)
           end
         end,
-        indicator = { icon = "▎" },
-        diagnostics = "nvim_lsp",
+
         diagnostics_indicator = function(_, _, diagnostics, _)
           local symbols = { error = " ", warn = " " }
           local result = {}
@@ -31,6 +30,35 @@ return {
           end
           return table.concat(result, " ")
         end,
+
+        sort_by = function(buffer_a, buffer_b)
+          local index_a = grapple.name_or_index({ buffer = buffer_a.id })
+          local index_b = grapple.name_or_index({ buffer = buffer_b.id })
+
+          if index_a ~= nil and index_b ~= nil then
+            return index_a < index_b
+          elseif index_a ~= nil and index_b == nil then
+            return true
+          elseif index_a == nil and index_b ~= nil then
+            return false
+          else
+            return buffer_a.id < buffer_b.id
+          end
+        end,
+
+        -- sort_by = function(buffer_a, buffer_b)
+        --   local index_a = grapple.name_or_index({ buffer = buffer_a.id })
+        --   local index_b = grapple.name_or_index({ buffer = buffer_b.id })
+        --   if index_a > 0 and index_b > 0 then
+        --     return index_a < index_b
+        --   end
+        --   return buffer_a.id < buffer_b.id
+        --
+        -- end,
+        -- sort_by = "id",
+
+        indicator = { style = "none" },
+        diagnostics = "nvim_lsp",
         style_preset = bufferline.style_preset.no_italic,
         show_buffer_close_icons = false,
         offsets = {
@@ -40,6 +68,7 @@ return {
             padding = 1,
           },
         },
+        separator_style = { "│", "│" },
       },
       -- fix highlights for catppuccin theme
       highlights = {

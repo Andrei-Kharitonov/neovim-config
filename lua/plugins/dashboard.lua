@@ -30,7 +30,7 @@ return {
           {
             icon = " ",
             desc = "Find files",
-            action = "Telescope file_browser",
+            action = "lua MiniFiles.open()",
             key_format = "  %s",
             key = "f",
           },
