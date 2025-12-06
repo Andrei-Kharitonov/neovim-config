@@ -30,7 +30,7 @@ return {
         -- docs
         "markdown",
         "markdown_inline",
-        "latex",
+        -- "latex",
         "vimdoc",
         "comment",
         "xml",

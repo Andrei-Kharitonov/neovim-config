@@ -7,10 +7,9 @@ return {
   },
   opts = {
     projects = {
-      "~/projects/*",
-      "~/work/*",
-      "~/nixos-config",
-      "~/.config/nvim",
+      "C:/Projects-JS/*",
+      "C:/Projects-klowd/*",
+      "C:/Users/ANDREI/AppData/Local/nvim",
     },
     picker = {
       type = "telescope",

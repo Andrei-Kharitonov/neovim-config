@@ -17,7 +17,7 @@ return {
           "cssls", -- css, scss
           "vtsls", -- js, ts, jsx, tsx
           "jsonls", -- json
-          "nil_ls", -- nix
+          -- "nil_ls", -- nix
           "pyright", -- python
           "clangd", -- c, c++
         },
@@ -45,9 +45,9 @@ return {
       vim.lsp.config("jsonls", {
         capabilities = capabilities,
       })
-      vim.lsp.config("nil_ls", {
-        capabilities = capabilities,
-      })
+      -- vim.lsp.config("nil_ls", {
+      --   capabilities = capabilities,
+      -- })
       vim.lsp.config("pyright", {
         capabilities = capabilities,
       })
