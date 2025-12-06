@@ -22,11 +22,17 @@ vim.keymap.set(
   "n",
   "<Leader>s",
   [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
-  { noremap = true, desc = "Replace word under the cursor in file" }
+  { noremap = true, desc = "Replace word under cursor in file" }
 )
 vim.keymap.set(
   "v",
   "<Leader>s",
+  ":s/\\%V//g<Left><Left><Left>",
+  { noremap = true, desc = "Replace in selected area" }
+)
+vim.keymap.set(
+  "v",
+  "<Leader>S",
   "y:%s/\\V<C-r>\"/<C-r>\"/gI<Left><Left><Left>",
   { noremap = true, desc = "Replace selected string in file" }
 )
@@ -41,10 +47,10 @@ vim.keymap.set(
 )
 
 -- Navigation
-vim.keymap.set("i", "<C-h>", "<Left>", opts())
+vim.keymap.set({"i","c"}, "<C-h>", "<Left>", { noremap = true })
 vim.keymap.set("i", "<C-j>", "<Down>", opts())
 vim.keymap.set("i", "<C-k>", "<Up>", opts())
-vim.keymap.set("i", "<C-l>", "<Right>", opts())
+vim.keymap.set({"i","c"}, "<C-l>", "<Right>", { noremap = true })
 vim.keymap.set("n", "<C-d>", "<C-d>zz", opts())
 vim.keymap.set("n", "<C-u>", "<C-u>zz", opts())
 
