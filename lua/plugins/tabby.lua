@@ -4,11 +4,9 @@ return {
   config = function()
     local theme = {
       fill = "TabLine",
-      head = "TabLineFill",
       current_tab = "TabLineSel",
       tab = "TabLineFill",
       win = "TabLineSel",
-      tail = "TabLineFill",
       neotree = "TabLineFill",
     }
 
@@ -57,10 +55,6 @@ return {
               margin = " ",
             }
           end),
-
-          {
-            line.sep(" ", theme.tail, theme.fill),
-          },
 
           hl = theme.fill,
         }
