@@ -17,6 +17,7 @@ vim.keymap.set("v", "<C-_>", "gc", { silent = true, remap = true, desc = "Commen
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", opts("Move selected up"))
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", opts("Move selected down"))
 vim.keymap.set("n", "J", "mzJ`z", opts("Join lines"))
+vim.keymap.set("n", "#", ":b#<CR>", opts("Prev buffer"))
 vim.keymap.set(
   "n",
   "<Leader>s",
@@ -63,9 +64,17 @@ vim.keymap.set("n", "<Leader>r", ":Registers<CR>", opts("Registers"))
 vim.keymap.set("n", "<Leader>z", ":ZenMode<CR>", opts("Zen mode"))
 vim.keymap.set("n", "<Leader>u", ":lua require('undotree').toggle()<CR>", opts("Undo history"))
 vim.keymap.set("n", "<Leader>S", ":lua require('spectre').toggle()<CR>", opts("Search and replace"))
-vim.keymap.set("n", "<Leader>dd", ":BufDel<CR>", opts("Delete buffer"))
-vim.keymap.set("n", "<Leader>N", ":GlobalNote<CR>", opts("Open global note"))
 vim.keymap.set("n", "<Leader>?", ":lua require('which-key').show({keys='<Leader>'})<CR>", opts("Show keymaps"))
+vim.keymap.set("n", "<Leader>N", function ()
+  local cwd = vim.fn.fnamemodify(vim.loop.cwd(), ":t")
+  if cwd == "nvim" then
+    return ":NvimNote<CR>"
+  elseif cwd == "nixos-config" then
+    return ":NixosNote<CR>"
+  else
+    return ":GlobalNote<CR>"
+  end
+end, { noremap = true, silent = true, expr = true, desc = "Open global note" })
 
 -- telescope
 vim.keymap.set("n", "<C-p>", ":Telescope find_files<CR>", opts("Search files in directory"))
@@ -73,6 +82,7 @@ vim.keymap.set("n", "<Leader>F", ":Telescope<CR>", opts("Search"))
 vim.keymap.set("n", "<Leader>ff", ":Telescope current_buffer_fuzzy_find<CR>", opts("Search in file"))
 vim.keymap.set("n", "<Leader>fs", ":Telescope live_grep<CR>", opts("Search in directory"))
 vim.keymap.set("n", "<Leader>fl", ":lua MiniFiles.open()<CR>", opts("Open file browser"))
+vim.keymap.set("n", "<Leader>fL", ":lua MiniFiles.open(vim.api.nvim_buf_get_name(0))<CR>", opts("Open file in file browser"))
 vim.keymap.set("n", "<Leader>fb", ":Telescope buffers<CR>", opts("Search buffers"))
 vim.keymap.set("n", "<Leader>fg", ":Telescope git_status<CR>", opts("Git status"))
 vim.keymap.set("n", "<Leader>fp", ":NeovimProjectHistory<CR>", opts("Projects directories"))

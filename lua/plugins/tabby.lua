@@ -44,7 +44,6 @@ return {
           hl = theme.fill,
         }
       end,
-      -- option = {}, -- setup modules' option,
     })
   end,
 }

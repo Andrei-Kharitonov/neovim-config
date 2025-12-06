@@ -2,8 +2,8 @@
 return {
   "coffebar/neovim-project",
   dependencies = {
-    { "nvim-lua/plenary.nvim" },
-    { "Shatur/neovim-session-manager" },
+    "nvim-lua/plenary.nvim",
+    "Shatur/neovim-session-manager"
   },
   opts = {
     projects = {
@@ -22,8 +22,4 @@ return {
       n = "d",
     },
   },
-  init = function()
-    -- enable saving the state of plugins in the session
-    vim.opt.sessionoptions:append("globals")
-  end,
 }

@@ -11,14 +11,6 @@ vim.api.nvim_create_user_command("DelHiddenBufs", function()
   print(("%d buffers deleted"):format(counter))
 end, { desc = "Wipeout all buffers not shown in a window" })
 
--- Disable autocommenting new line
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "*",
-  callback = function()
-    vim.opt_local.formatoptions:remove({ "r", "o" })
-  end,
-})
-
 -- Toggle soft wrap
 vim.api.nvim_create_user_command("WrapToggle", function()
   ---@diagnostic disable-next-line: undefined-field
@@ -47,6 +39,15 @@ vim.api.nvim_create_user_command("VerticalLineToggle", function()
   end
 end, { desc = "Toggle vertical line" })
 
+
+-- Disable autocommenting new line
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "*",
+  callback = function()
+    vim.opt_local.formatoptions:remove({ "r", "o" })
+  end,
+})
+
 -- Wrap lines in .md, .txt
 vim.api.nvim_create_autocmd("BufWinEnter", {
   pattern = { "*.md", "*.txt" },
@@ -55,5 +56,13 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
     if not vim.opt_local.wrap:get() then
       vim.cmd("WrapToggle")
     end
+  end,
+})
+
+-- Delete hidden buffers before saving session
+vim.api.nvim_create_autocmd("User", {
+  pattern = "SessionSavePre",
+  callback = function()
+    vim.cmd("DelHiddenBufs")
   end,
 })

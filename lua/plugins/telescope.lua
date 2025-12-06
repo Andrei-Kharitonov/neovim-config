@@ -8,7 +8,6 @@ return {
     },
     event = "VeryLazy",
     config = function()
-      local fb_actions = require "telescope".extensions.file_browser.actions
       require("telescope").setup({
         defaults = {
           layout_strategy = "horizontal",
@@ -40,30 +39,8 @@ return {
             },
           },
         },
-        extensions = {
-          file_browser = {
-            display_stat = false,
-            dir_icon = "",
-            grouped = true,
-            dir_icon_hl = "Directory",
-            hide_parent_dir = true,
-            mappings = {
-              ["n"] = {
-                ["<BS>"] = fb_actions.goto_parent_dir,
-                ["H"] = fb_actions.toggle_hidden,
-                ["."] = fb_actions.toggle_hidden,
-                ["h"] = false,
-                ["g"] = false,
-              },
-              ["i"] = {
-                ["<C-.>"] = fb_actions.toggle_hidden,
-              },
-            },
-          },
-        },
       })
       require("telescope").load_extension("notify")
-      require("telescope").load_extension("file_browser")
     end,
   },
   {
@@ -81,12 +58,4 @@ return {
       require("telescope").load_extension("ui-select")
     end,
   },
-
-  {
-    -- Telescope file browser
-    "nvim-telescope/telescope-file-browser.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-    }
-  }
 }

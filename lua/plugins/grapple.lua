@@ -2,9 +2,10 @@
 return {
   "cbochs/grapple.nvim",
   opts = {
-    scope = "git",
+    scope = "cwd",
     win_opts = {
       footer = "",
+      border = "rounded",
     },
   },
 }
