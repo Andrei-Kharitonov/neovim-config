@@ -12,6 +12,7 @@ return {
       "grapple",
       "undotree",
       "registers",
+      "spectre_panel",
     }
 
     local function hasValue(tab, val)

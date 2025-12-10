@@ -20,7 +20,7 @@ return {
       line = function(line)
         return {
           line.wins_in_tab(line.api.get_current_tab()).foreach(function(win)
-            local offset = string.rep(" ", 11) .. " NEO-TREE" .. string.rep(" ", 12)
+            local offset = string.rep(" ", 11) .. ( win.is_current() and "" or "") .. " Neo-tree" .. string.rep(" ", 12)
             if is_neotree(win.buf_name()) then
               return {
                 line.sep(offset,  {fg = "#cdd6f5"}, theme.neotree),

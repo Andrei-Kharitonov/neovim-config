@@ -20,21 +20,21 @@ vim.keymap.set("n", "J", "mzJ`z", opts("Join lines"))
 vim.keymap.set("n", "#", ":b#<CR>", opts("Prev buffer"))
 vim.keymap.set(
   "n",
-  "<Leader>s",
+  "<Leader>C",
   [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
   { noremap = true, desc = "Replace word under cursor in file" }
-)
-vim.keymap.set(
-  "v",
-  "<Leader>s",
-  ":s/\\%V//g<Left><Left><Left>",
-  { noremap = true, desc = "Replace in selected area" }
 )
 vim.keymap.set(
   "v",
   "<Leader>S",
   "y:%s/\\V<C-r>\"/<C-r>\"/gI<Left><Left><Left>",
   { noremap = true, desc = "Replace selected string in file" }
+)
+vim.keymap.set(
+  "v",
+  "<Leader>r",
+  ":s/\\%V//g<Left><Left><Left>",
+  { noremap = true, desc = "Replace in selected area" }
 )
 vim.keymap.set(
   "v",
@@ -87,16 +87,19 @@ vim.keymap.set("n", "<C-p>", ":Telescope find_files<CR>", opts("Search files in 
 vim.keymap.set("n", "<Leader>F", ":Telescope<CR>", opts("Search"))
 vim.keymap.set("n", "<Leader>ff", ":Telescope current_buffer_fuzzy_find<CR>", opts("Search in file"))
 vim.keymap.set("n", "<Leader>fs", ":Telescope live_grep<CR>", opts("Search in directory"))
-vim.keymap.set("n", "<Leader>fl", ":lua MiniFiles.open()<CR>", opts("Open file browser"))
-vim.keymap.set("n", "<Leader>fL", ":lua MiniFiles.open(vim.api.nvim_buf_get_name(0))<CR>", opts("Open file in file browser"))
 vim.keymap.set("n", "<Leader>fb", ":Telescope buffers<CR>", opts("Search buffers"))
 vim.keymap.set("n", "<Leader>fg", ":Telescope git_status<CR>", opts("Git status"))
 vim.keymap.set("n", "<Leader>fp", ":NeovimProjectHistory<CR>", opts("Projects directories"))
 vim.keymap.set("n", "<Leader>fn", ":Telescope notify<CR>", opts("Notifications"))
 
+-- mini.nvim
+vim.keymap.set("n", "<Leader>j", ":lua MiniFiles.open()<CR>", opts("Open file browser"))
+vim.keymap.set("n", "<Leader>J", ":lua MiniFiles.open(vim.api.nvim_buf_get_name(0))<CR>", opts("Open file in file browser"))
+vim.keymap.set("n", "<Leader>b", ":lua MiniMap.toggle()<CR>", opts("Toggle scrollbar"))
+
 -- flash
-vim.keymap.set({"n", "x", "o"}, "s", "<cmd>lua require('flash').jump()<CR>", opts("Flash"))
-vim.keymap.set({"n", "x", "o"}, "S", "<cmd>lua require('flash').treesitter()<CR>", opts("Flash treesitter"))
+vim.keymap.set({"n", "x", "o"}, "<Leader>s", "<cmd>lua require('flash').jump()<CR>", opts("Flash"))
+vim.keymap.set({"n", "x", "o"}, "<Leader>T", "<cmd>lua require('flash').treesitter()<CR>", opts("Flash treesitter"))
 vim.keymap.set("o", "r", "<cmd>lua require('flash').remote()<CR>", opts("Remote flash"))
 vim.keymap.set({"x", "o"}, "R", "<cmd>lua require('flash').treesitter_search()<CR>", opts("Treesitter search"))
 vim.keymap.set("c", "<C-s>", "<cmd>lua require('flash').toggle()<CR>", opts("Toggle flash search"))
@@ -136,7 +139,7 @@ vim.keymap.set("n", "<Leader>5", ":Grapple select index=5<CR>", opts())
 vim.keymap.set("n", "<Leader>6", ":Grapple select index=6<CR>", opts())
 vim.keymap.set("n", "<Leader>7", ":Grapple select index=7<CR>", opts())
 vim.keymap.set("n", "<Leader>8", ":Grapple select index=8<CR>", opts())
-vim.keymap.set("n", "<Leader>8", ":Grapple select index=9<CR>", opts())
+vim.keymap.set("n", "<Leader>9", ":Grapple select index=9<CR>", opts())
 
 -- icons picker
 vim.keymap.set("n", "<Leader><Leader>i", ":IconPickerNormal<CR>", opts("Icon picker"))
