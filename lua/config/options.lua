@@ -25,6 +25,12 @@ vim.opt.fillchars = {
   vertright = "┣",
   verthoriz = "╋",
 }
+-- treesitter fold
+vim.opt.foldmethod = 'expr'
+vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 99
+vim.opt.foldenable = true
 
 vim.g.mapleader = " " -- <Leader> = <Space>
 vim.g.maplocalleader = "\\"
