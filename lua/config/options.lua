@@ -24,6 +24,7 @@ vim.opt.fillchars = {
   vertleft = "┫",
   vertright = "┣",
   verthoriz = "╋",
+  eob = " ",
 }
 -- treesitter fold
 vim.opt.foldmethod = "expr"

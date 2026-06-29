@@ -1,6 +1,6 @@
 -- Registers previewer
 return {
-  "tversteeg/registers.nvim",
+  "https://codeberg.org/fosk/registers.nvim",
   config = function()
     local registers = require("registers")
     registers.setup({

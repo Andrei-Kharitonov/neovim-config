@@ -2,9 +2,17 @@
 return {
   "nvim-mini/mini.map",
   config = function()
-    require("mini.map").setup({
+    local map = require("mini.map")
+    local diagnostic_integration = map.gen_integration.diagnostic({
+      error = "DiagnosticFloatingError",
+      warn = "DiagnosticFloatingWarn",
+      info = "DiagnosticFloatingInfo",
+      hint = "DiagnosticFloatingHint",
+    })
+    map.setup({
+      integrations = { diagnostic_integration },
       symbols = {
-        encode = require("mini.map").gen_encode_symbols.dot("4x2"),
+        encode = map.gen_encode_symbols.dot("4x2"),
       },
     })
   end,

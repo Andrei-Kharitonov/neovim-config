@@ -19,12 +19,6 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", opts("Move selected down"))
 vim.keymap.set("n", "J", "mzJ`z", opts("Join lines"))
 vim.keymap.set("n", "#", ":b#<CR>", opts("Prev buffer"))
 vim.keymap.set(
-  "n",
-  "<Leader>C",
-  [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
-  { noremap = true, desc = "Replace word under cursor in file" }
-)
-vim.keymap.set(
   "v",
   "<Leader>S",
   "y:%s/\\V<C-r>\"/<C-r>\"/gI<Left><Left><Left>",
