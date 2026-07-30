@@ -27,6 +27,19 @@ vim.api.nvim_create_user_command("WrapToggle", function()
   end
 end, { desc = "Toggle soft wrap" })
 
+-- Python
+vim.api.nvim_create_user_command("Py", function()
+  vim.cmd("w")
+  vim.cmd("!python %")
+end, { desc = "Save and run python file" })
+
+-- C
+vim.api.nvim_create_user_command("C", function()
+  vim.cmd("w")
+  vim.cmd("!gcc main.c -o main")
+  vim.cmd("!./main")
+end, { desc = "Compile and run C main file" })
+
 -- Toggle vertical line
 vim.api.nvim_create_user_command("VerticalLineToggle", function()
   ---@diagnostic disable-next-line: undefined-field
