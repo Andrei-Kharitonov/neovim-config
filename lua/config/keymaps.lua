@@ -45,8 +45,6 @@ vim.keymap.set({"i","c"}, "<C-h>", "<Left>", { noremap = true })
 vim.keymap.set("i", "<C-j>", "<Down>", opts())
 vim.keymap.set("i", "<C-k>", "<Up>", opts())
 vim.keymap.set({"i","c"}, "<C-l>", "<Right>", { noremap = true })
-vim.keymap.set("n", "<C-d>", "<C-d>zz", opts())
-vim.keymap.set("n", "<C-u>", "<C-u>zz", opts())
 
 -- Lsp
 vim.keymap.set("n", "K", vim.lsp.buf.hover, opts("Lsp show docs"))
