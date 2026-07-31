@@ -28,7 +28,9 @@ return {
     -- Lsp config
     "neovim/nvim-lspconfig",
     config = function()
-      local capabilities = require("cmp_nvim_lsp").default_capabilities()
+      local capabilities = require("cmp_nvim_lsp").default_capabilities({
+        -- snippetSupport = false,
+      })
 
       vim.lsp.config("lua_ls", {
         capabilities = capabilities,
