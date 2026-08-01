@@ -4,6 +4,24 @@ return {
   name = "catppuccin",
   priority = 1000,
   config = function()
+    require("catppuccin").setup({
+      flavour = "mocha", -- latte, frappe, macchiato, mocha
+      styles = {
+        comments = { "italic" },
+        conditionals = { "italic" },
+        loops = { "italic" },
+        functions = {},
+        keywords = {},
+        strings = {},
+        variables = {},
+        numbers = {},
+        booleans = {},
+        properties = {},
+        types = {},
+        operators = {},
+      },
+    })
+
     vim.cmd.colorscheme("catppuccin")
 
     -- fix neotree border color for catppuccin-mocha
