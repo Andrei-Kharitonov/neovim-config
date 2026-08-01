@@ -26,10 +26,8 @@ vim.opt.fillchars = {
   verthoriz = "╋",
   eob = " ",
 }
--- fold
+-- folds
 vim.opt.sessionoptions:remove("folds")
-vim.opt.foldmethod = "manual" -- or "expr"
--- vim.opt.foldexpr = "v:lua.vim.lsp.foldexpr()"
 vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 99
 vim.opt.foldenable = true
