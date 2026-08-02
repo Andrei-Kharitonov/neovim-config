@@ -4,7 +4,12 @@ local function colors_setup(name)
 
   if vim.g.colors_name == "catppuccin-mocha" then
     -- hide neotree separator
-    vim.api.nvim_set_hl(0, "NeoTreeWinSeparator", { fg = "#181825", bg = "#181825" })
+    -- vim.api.nvim_set_hl(0, "NeoTreeWinSeparator", { fg = "#181825", bg = "#181825" })
+    vim.api.nvim_set_hl(0, "NeoTreeWinSeparator", { fg = "#191921", bg = "#191921" })
+    -- fixed for catppuccin + kanagawa bg
+    vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#a5adce", bg = "#363646", bold = true })
+    vim.api.nvim_set_hl(0, "LineNr", { fg = "#54546d", bg = "#2a2a37" }) -- statuscolumn
+    vim.api.nvim_set_hl(0, "TabLineSel", { fg = "#cdd6f5", bg = "#2a2a37" })
   elseif vim.g.colors_name == "kanagawa" then
     -- hide neotree separator
     -- vim.api.nvim_set_hl(0, "NeoTreeWinSeparator", { fg = "#1f1f28", bg = "#1f1f28" })
@@ -22,9 +27,9 @@ local function colors_setup(name)
   vim.api.nvim_set_hl(0, "MiniFilesTitleFocused", { link = "Bold" })
 
   -- diagnostic underline style
-  local hl_groups = { 'DiagnosticUnderlineError', 'DiagnosticUnderlineWarn', 'DiagnosticUnderlineInfo' }
+  local hl_groups = { "DiagnosticUnderlineError", "DiagnosticUnderlineWarn", "DiagnosticUnderlineInfo" }
   for _, hl in ipairs(hl_groups) do
-      vim.cmd.highlight(hl .. ' gui=undercurl')
+    vim.cmd.highlight(hl .. " gui=undercurl")
   end
 end
 
@@ -50,8 +55,18 @@ return {
           types = {},
           operators = {},
         },
+        color_overrides = {
+          mocha = {
+            base = "#1f1f28",
+            mantle = "#191921",
+            crust = "#191921",
+            -- base = "#2a2a37",
+            -- mantle = "#1f1f28",
+            -- crust = "#1f1f28",
+          },
+        },
       })
-      -- colors_setup("catppuccin")
+      colors_setup("catppuccin")
     end,
   },
   {
@@ -63,7 +78,7 @@ return {
         theme = "wave",
         commentStyle = { italic = true },
         functionStyle = {},
-        keywordStyle = { italic = true},
+        keywordStyle = { italic = true },
         statementStyle = { bold = true },
         typeStyle = {},
         overrides = function(colors)
@@ -74,14 +89,14 @@ return {
           end
 
           return {
-            DiagnosticVirtualTextHint  = makeDiagnosticColor(theme.diag.hint),
-            DiagnosticVirtualTextInfo  = makeDiagnosticColor(theme.diag.info),
-            DiagnosticVirtualTextWarn  = makeDiagnosticColor(theme.diag.warning),
+            DiagnosticVirtualTextHint = makeDiagnosticColor(theme.diag.hint),
+            DiagnosticVirtualTextInfo = makeDiagnosticColor(theme.diag.info),
+            DiagnosticVirtualTextWarn = makeDiagnosticColor(theme.diag.warning),
             DiagnosticVirtualTextError = makeDiagnosticColor(theme.diag.error),
           }
-        end
+        end,
       })
-      colors_setup("kanagawa")
+      -- colors_setup("kanagawa")
     end,
-  }
+  },
 }
