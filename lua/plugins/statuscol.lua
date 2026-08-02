@@ -39,7 +39,7 @@ return {
           condition = { builtin.not_empty },
         },
         {
-          text = { " " },
+          text = { "" },
           condition = { builtin.not_empty },
         },
       },

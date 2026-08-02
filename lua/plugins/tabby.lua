@@ -20,10 +20,14 @@ return {
       line = function(line)
         return {
           line.wins_in_tab(line.api.get_current_tab()).foreach(function(win)
-            local offset = string.rep(" ", 11) .. ( win.is_current() and "" or "") .. " Neo-tree" .. string.rep(" ", 12)
+            local offset = string.rep(" ", 11)
+            .. ( win.is_current() and "" or "")
+            .. " Neo-tree"
+            .. string.rep(" ", 11)
             if is_neotree(win.buf_name()) then
               return {
-                line.sep(offset,  {fg = "#cdd6f5"}, theme.neotree),
+                line.sep(offset,  {}, theme.neotree),
+                line.sep(vim.g.colors_name ~= "catppuccin-mocha" and "┃" or " ", { fg = "#1f1f28", bg = "#16161D" }, theme.neotree),
               }
             end
           end),
