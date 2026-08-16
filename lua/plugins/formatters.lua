@@ -11,6 +11,7 @@ return {
           "black", -- python
           "clang-format", -- c, c++
           "eslint_d", -- js, ts linter
+          "asmfmt", -- assembler
         },
       })
     end,
@@ -27,6 +28,7 @@ return {
           null_ls.builtins.formatting.nixfmt,
           null_ls.builtins.formatting.black,
           null_ls.builtins.formatting.clang_format,
+          null_ls.builtins.formatting.asmfmt,
         },
       })
     end,

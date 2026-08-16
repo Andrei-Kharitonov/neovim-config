@@ -54,6 +54,7 @@ vim.keymap.set("n", "<Leader>gr", vim.lsp.buf.references, opts("Lsp show referen
 vim.keymap.set("n", "<Leader>gf", vim.lsp.buf.format, opts("Lsp format file"))
 vim.keymap.set({"n", "v"}, "<Leader>ca", vim.lsp.buf.code_action, opts("Lsp show code actions"))
 vim.keymap.set("n", "<Leader>di", vim.diagnostic.open_float, opts("Show diagnostic"))
+vim.keymap.set({"i", "n"}, "<C-s>", vim.lsp.buf.signature_help, opts("Function's signature"))
 
 -- Plugins keymaps
 vim.keymap.set("n", "<C-e>", ":Neotree toggle<CR>", opts("File explorer"))
