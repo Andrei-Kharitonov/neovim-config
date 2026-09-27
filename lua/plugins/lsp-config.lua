@@ -56,6 +56,10 @@ return {
       vim.lsp.config("clangd", {
         capabilities = capabilities,
       })
+
+      -- For nixos delete clangd from mason and install it with nix
+      -- then enable it in vim lsp
+      -- vim.lsp.enable("clangd")
     end,
   },
 }
