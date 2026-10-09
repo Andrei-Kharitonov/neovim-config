@@ -3,7 +3,10 @@ return {
   "mrjones2014/smart-splits.nvim",
   config = function()
     require("smart-splits").setup({
-      default_amount = 1,
+      resize = {
+        amount = 1,
+        ignored_events = { 'BufEnter', 'WinEnter' },
+      },
     })
   end,
 }
